@@ -66,7 +66,7 @@ export const AddTask = () => {
             onChange={(e) => setValue(e.target.value)}
           />
           <button
-            className="md:mx-1 my-2 md:my-0 md:p-[5px] p-[6px] hover:scale-95 shadow-sm rounded-sm bg-sky-600 text-white text-xs md:text-sm w-fit md:w-full duration-200"
+            className="md:mx-1 my-2 md:my-0 md:p-[5px] p-[6px] hover:scale-95 shadow-sm rounded-sm bg-sky-400 text-white text-xs md:text-sm w-fit md:w-full duration-200"
             type="submit"
           >
             Add Task
