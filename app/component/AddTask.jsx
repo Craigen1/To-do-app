@@ -115,7 +115,7 @@ export const AddTask = () => {
                     <p
                       onClick={() => toggleComplete(index)}
                       className={`cursor-pointer md:text-lg text-xs ${
-                        task.completed ? "line-through text-gray-600" : ""
+                        task.completed ? "line-through text-gray-500" : ""
                       }`}
                     >
                       {index + 1}. {task.text}
@@ -125,12 +125,12 @@ export const AddTask = () => {
                     <FontAwesomeIcon
                       icon={faPenToSquare}
                       onClick={() => toggleEdit(index)}
-                      className="px-1 cursor-pointer w-3 h-3 md:w-4 md:h-4"
+                      className="px-[9px] cursor-pointer w-3 h-3 md:w-4 md:h-4 text-emerald-500"
                     />
                     <FontAwesomeIcon
                       icon={faTrash}
                       onClick={() => toggleDelete(index)}
-                      className="px-1 cursor-pointer w-3 h-3 md:w-4 md:h-4"
+                      className="px-[9px] cursor-pointer w-3 h-3 md:w-4 md:h-4 text-rose-500"
                     />
                   </div>
                 </div>
