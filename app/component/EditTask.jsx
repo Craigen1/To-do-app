@@ -1,0 +1,37 @@
+import React, { useEffect, useState } from "react";
+
+export const EditTask = ({ onCancel, task, onUpdate }) => {
+  const [text, setText] = useState(task.text);
+
+  const toggleCancel = () => {
+    onCancel();
+  };
+
+  const toggleUpdate = () => {
+    onUpdate(text);
+  };
+  return (
+    <div className="flex justify-between">
+      <input
+        className="border rounded-sm md:p-[5px] p-1 text-xs md:text-sm"
+        value={text}
+        type="text"
+        onChange={(e) => setText(e.target.value)}
+      />
+      <div className="flex text-center md:py-1">
+        <button
+          onClick={toggleUpdate}
+          className="text-emerald-500 font-medium text-xs md:text-sm px-2"
+        >
+          Update
+        </button>
+        <button
+          onClick={toggleCancel}
+          className="text-rose-500 font-medium text-xs md:text-sm"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+  );
+};
