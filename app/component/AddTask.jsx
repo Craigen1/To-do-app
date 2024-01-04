@@ -98,18 +98,19 @@ export const AddTask = () => {
               ""
             )}
           </div>
-
-          {tasks.map((task, index) =>
-            task.isEditing ? (
-              <EditTask
-                task={task}
-                key={index}
-                onCancel={() => toggleEdit(index)}
-                onUpdate={(updatedText) => handleUpdate(index, updatedText)}
-              />
-            ) : (
-              <Fragment key={index}>
-                <div className="flex justify-between py-2">
+          <div>
+            {tasks.map((task, index) =>
+              task.isEditing ? (
+                <div>
+                  <EditTask
+                    task={task}
+                    key={index}
+                    onCancel={() => toggleEdit(index)}
+                    onUpdate={(updatedText) => handleUpdate(index, updatedText)}
+                  />
+                </div>
+              ) : (
+                <div key={index} className="flex w-full justify-between py-2">
                   <div>
                     <p
                       onClick={() => toggleComplete(index)}
@@ -133,9 +134,9 @@ export const AddTask = () => {
                     />
                   </div>
                 </div>
-              </Fragment>
-            )
-          )}
+              )
+            )}
+          </div>
         </div>
       </div>
     </div>
