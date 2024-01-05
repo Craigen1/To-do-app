@@ -4,11 +4,22 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faPenToSquare } from "@fortawesome/free-solid-svg-icons";
 import { EditTask } from "./EditTask";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "@/app/firebase/config";
+import { useRouter } from "next/navigation";
+import { signOut } from "firebase/auth";
 
 export const AddTask = () => {
   const [tasks, setTasks] = useState([]);
   const [value, setValue] = useState("");
-  //const [empty, setEmpty] = useState(false);
+
+  const [user] = useAuthState(auth);
+  const router = useRouter();
+  const userSession = sessionStorage.getItem("user");
+
+  if (!user && !userSession) {
+    router.push("/signin");
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -47,12 +58,23 @@ export const AddTask = () => {
   };
   return (
     <div className="h-screen flex justify-center items-center">
+      <div className="absolute top-0 right-0 md:m-4 m-4">
+        <button
+          className="text-xs md:text-sm font-medium md:tracking-wide"
+          onClick={() => {
+            signOut(auth);
+            sessionStorage.removeItem("user");
+          }}
+        >
+          Logout
+        </button>
+      </div>
       <div className="flex flex-col justify-center items-center p-16 rounded-sm">
         <div className="m-4">
-          <h1 className="text-center font-medium uppercase tracking-widest text-2xl">
+          <h1 className="text-center font-medium uppercase tracking-widest text-3xl py-1">
             TO-DO APP
           </h1>
-          <p className="text-xs text-center">by Jethro Peña</p>
+          <p className="text-xs text-center text-gray-500">by Jethro Peña</p>
         </div>
         <form
           className="flex flex-col md:flex md:flex-row"
