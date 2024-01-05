@@ -15,9 +15,9 @@ export const AddTask = () => {
 
   const [user] = useAuthState(auth);
   const router = useRouter();
-  const userSession = sessionStorage.getItem("user");
+  //const userSession = sessionStorage.getItem("user");
 
-  if (!user && !userSession) {
+  if (!user) {
     router.push("/signin");
   }
 
@@ -61,10 +61,7 @@ export const AddTask = () => {
       <div className="absolute top-0 right-0 md:m-4 m-4">
         <button
           className="text-xs md:text-sm font-medium md:tracking-wide"
-          onClick={() => {
-            signOut(auth);
-            sessionStorage.removeItem("user");
-          }}
+          onClick={() => signOut(auth)}
         >
           Logout
         </button>
