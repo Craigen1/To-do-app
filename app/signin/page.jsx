@@ -11,7 +11,7 @@ const page = () => {
   const [signInWithEmailAndPassword] = useSignInWithEmailAndPassword(auth);
   const router = useRouter();
 
-  const [showPass, setShowPass] = useState(false);
+  const [showPass, setShowPass] = useState(true);
 
   const handleShow = () => {
     setShowPass(!showPass);
@@ -34,7 +34,7 @@ const page = () => {
       <div className="flex justify-center items-center h-screen">
         <div className="flex flex-col">
           <input
-            className="p-2 my-1 border rounded-sm"
+            className="md:p-2 p-1 my-1 border rounded-sm text-sm"
             type="text"
             placeholder="email"
             value={email}
@@ -42,23 +42,23 @@ const page = () => {
           />
           <div>
             <input
-              className="p-2 my-1 border rounded-sm"
+              className="md:p-2 p-1 my-1 border rounded-sm text-sm"
               type={showPass ? `password` : `text`}
               placeholder="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="px-2" onClick={handleShow}>
+            <button className="px-2 text-xs md:text-md" onClick={handleShow}>
               {showPass ? "Show" : "Hide"}
             </button>
           </div>
           <button
             onClick={handleSignIn}
-            className="px-1 py-1 my-2 border rounded-md text-white bg-sky-500"
+            className="p-2 my-1 border rounded-md text-white bg-sky-500 text-xs md:text-md w-fit md:w-full"
           >
             Sign-In
           </button>
-          <p className="text-sm my-3">
+          <p className="text-xs md:text-md my-3">
             You don't have an account?
             <span className="px-2 underline text-emerald-500 font-medium">
               <Link href="/signup">Sign-Up</Link>

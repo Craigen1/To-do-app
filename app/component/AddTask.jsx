@@ -69,7 +69,7 @@ export const AddTask = () => {
       </div>
       <div className="flex flex-col justify-center items-center p-16 rounded-sm">
         <div className="m-4">
-          <h1 className="text-center font-medium uppercase tracking-widest text-3xl py-1">
+          <h1 className="text-center font-medium uppercase tracking-widest text-xl md:text-3xl py-1">
             TO-DO APP
           </h1>
           <p className="text-xs text-center text-gray-500">by Jethro Peña</p>
@@ -86,7 +86,7 @@ export const AddTask = () => {
             onChange={(e) => setValue(e.target.value)}
           />
           <button
-            className="md:mx-1 my-2 md:my-0 md:p-[5px] p-[6px] hover:scale-95 shadow-sm rounded-sm bg-sky-500 text-white text-xs md:text-sm w-fit md:w-full duration-200"
+            className="md:mx-1 my-2 md:my-0 md:p-[5px] p-[6px] hover:scale-95 shadow-sm rounded-sm bg-sky-500 text-white text-xs md:text-sm w-fit duration-200"
             type="submit"
           >
             Add Task
